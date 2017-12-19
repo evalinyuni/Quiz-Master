@@ -2,8 +2,7 @@
 test app
 
 - git clone git@github.com:evalinyuni/Quiz-Master.git
-- cd quizapp
-- cp config/database.yml.example config/database.yml
+- cd Quiz-Master
 - bundle install
 - bundle exec rake db:migrate
 - rails s
