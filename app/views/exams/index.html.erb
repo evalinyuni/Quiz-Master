@@ -1,0 +1,31 @@
+<h1>Listing questions</h1>
+
+<p>Total: <%= @exam.size %></p>
+<p><%= link_to 'New Question', new_exam_path %></p>
+
+<table border="1">
+  <tr>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>1</th>
+    <th>2</th>
+    <th>3</th>
+  </tr>
+
+
+<% @exam.each do |e| %>
+  <tr>
+    <td><%= e.question %></td>
+    <td><%= link_to 'Take', exams_take_path(e)%></td>
+    <td><%= link_to 'Show', e %></td>
+    <td><%= link_to 'Edit', edit_exam_path(e) %></td>
+    <td><%= link_to 'Destroy', e, :data => {confirm: 'Do you want to delete this portfolio?'}, :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+<% content_for(:title) do %>
+  All Questions
+<% end %>

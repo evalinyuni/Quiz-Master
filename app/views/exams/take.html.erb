@@ -1,0 +1,10 @@
+<h1>Answer the question</h1>
+
+<%= render 'form_answer' %>
+<br />
+<%= link_to 'Show', @exam %> |
+<%= link_to 'Back', exams_path %>
+
+<% content_for(:title) do %>
+  Edit Question
+<% end %>

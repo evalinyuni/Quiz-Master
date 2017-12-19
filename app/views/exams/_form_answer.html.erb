@@ -1,0 +1,35 @@
+
+<%= form_for :exam, :url => {:action => "submit_quiz", :id => @exam} do |f| %>
+  <% if @exam.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exam.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @exam.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <b><%= f.label :question %></b>
+    <br />
+    <%= @exam.question%>
+  </div>
+  <br />
+  <% if params[:val] == "false" || params[:val].blank? %>
+    <div class="field">
+      <b><%= f.label :answer %></b>
+      <br />
+      <%= f.text_area :answer, :value => '', :size => "50x3", :required => true%>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Submit'%>
+    </div>
+  <% end %>
+
+  <p id="notice"><%= notice %></p>
+
+<% end %>
